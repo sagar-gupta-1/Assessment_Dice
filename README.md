@@ -7,7 +7,18 @@ This project is a demonstration of a simple ReactJS application showcasing vario
 This project utilizes GitHub's REST API endpoints to provide search results for public repositories. It offers a convenient way to explore and discover repositories based on various criteria. Additionally, it includes sorting functionality to refine search results according to specific parameters.
 
 ## Features
-Search Functionality: Utilize GitHub's powerful search capabilities to find repositories based on Name, Stars, Score etc.
+Sorting Repositories:
+GitHub's search API allows sorting repositories based on different parameters. You can use the sort and order parameters to sort the search results according to your preferences.
+
+Here's an example query to sort repositories by stars in descending order:
+
+https://api.github.com/search/repositories?q=reponame&sort=stars&order=desc
+
+Custom Sorting Logic:
+In some cases, you might need to perform custom sorting that the API endpoint doesn't support directly. For instance, if you have an array of data (arr), and you want to sort it numerically, you can use JavaScript's sort() method with a custom comparison function.
+
+arr.sort((a, b) => a - b);
+This sorts the array (arr) numerically in ascending order. If you want descending order, you can modify it to b - a.
 
 ## Installation
 
