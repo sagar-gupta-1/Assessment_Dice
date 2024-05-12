@@ -14,3 +14,25 @@ Search Functionality: Utilize GitHub's powerful search capabilities to find repo
 To run Awesome React App locally, follow these steps:
 
 1. Clone the repository:
+
+https://github.com/sagar-gupta-1/Assessment_Dice.git
+
+2. Navigate to the project directory:
+
+cd assessment
+
+3. Install dependencies:
+
+npm install
+
+4. Install axios
+
+npm install axios
+
+5. Install Bootstrap
+
+npm install react-bootstrap bootstrap
+
+4. Start the development server:
+
+npm start
