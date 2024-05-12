@@ -29,6 +29,15 @@ To run Awesome React App locally, follow these steps:
 
   npm start
 
+5. Copy Paste all these commands in a single go 
+
+  ```
+  git clone https://github.com/sagar-gupta-1/Assessment_Dice.git
+  npm i 
+  cd assesment
+  npm start
+  ```
+ 
 ## Dependencies
 
 1.react-bootstrap
