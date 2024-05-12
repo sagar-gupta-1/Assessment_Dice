@@ -1,55 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import {Row, Container} from 'react-bootstrap';
-// import SortRepo from './SortRepo';
-import RepoCard from './RepoCard';
-
-function RepoList({ searchQuery, sort }) {
-  const [repos, setRepos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
- console.log(sort);
-
- console.log(repos);
+import React from 'react';
+import {Row,Col,Card,Button, Container} from 'react-bootstrap';
+import './RepoCard.css';
 
 
+const RepoCard = ({repo}) => {
+    
 
-  useEffect(() => {
+  return (
+    <Col className='py-2 '>         
+        <Card className='p-2  text-white' style={{ width: '18rem', height: '100%', background: '#495269', borderRadius: '2rem' }}>
+            <Card.Img style={{width: '100%', borderRadius: '50%'}}  variant="top" src={repo.owner.avatar_url} />
+            <Card.Body className='d-flex flex-column ' style={{height: '100%'}}>
+                <Card.Text>
+                    <span style={{ fontWeight: 'bold' }}>UserName:</span> {repo.name} <br/>
+                    <span style={{ fontWeight: 'bold' }}>Stars:</span> {repo.stargazers_count} <br/>
+                    <span style={{ fontWeight: 'bold' }}>Language:</span> {repo.language} <br/>
+                    <div className='truncate' >
+                    <span style={{ fontWeight: 'bold', overflow:'hidden'}}>Description:</span> {repo.description}
+                    </div>
+                </Card.Text>
+                <div className='mt-auto d-flex justify-content-center '>
+                    <Button  target='_blank' variant="info" href={repo.html_url}  >Go to Link</Button>
+                </div>
+            </Card.Body>
+        </Card>
+    </Col>
 
-    const fetchRepos = async () => {
-      if (!searchQuery) {
-        setRepos([]);
-        return;
-      }
+  )
+}
 
-      setIsLoading(true);
-      try {
-        const response = await axios.get(`https://api.github.com/search/repositories?q=${searchQuery}`);
-        setRepos(response.data.items);
-      } catch (error) {
-        console.error('Error fetching repositories:', error);
-        setRepos([]);
-      }
-      setIsLoading(false);
-    };
-
-    if(sort === 'stars'){ 
-        setRepos((prev) => {
-          const sortedRepos = prev.sort((a,b) => b.stargazers_count - a.stargazers_count) ;
-          return [...sortedRepos]
-      });
-      }
-      else if(searchQuery !== ''){
-        fetchRepos();
-      }
-  }, [sort, searchQuery]);
+function RepoList({isLoading, apiResponse }) {
 
 
   return (
     <Container>
       {isLoading ? <p>Loading repositories...</p> : (
         <Row>
-          {repos.map((repo) => (
+          {apiResponse.map((repo) => (
             <RepoCard key={repo.id} repo={repo} />
           ))}
         </Row>
