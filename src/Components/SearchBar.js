@@ -45,7 +45,7 @@ function SearchBar({getApiResponse, setSearchQuery, searchQuery, filter, handleF
         <Dropdown.Item key={index} onClick={() => {handleFilter(searchQuery, fil)}}>{fil}</Dropdown.Item> 
       ))}         
       </DropdownButton>
-      {/* ascending nd descending button */}
+      {/* ascending and descending button */}
       <Button className='p-2 ms-4' style={{width: '5rem'}} variant='secondary' onClick={() => {
         setSortBy(!sortBy)
         handleFilter( searchQuery, filter)

@@ -23,7 +23,7 @@ To run Awesome React App locally, follow these steps:
 
 3. Install dependencies:
 
-  npm install
+  ```npm install```
 
 4. Start the development server:
 
