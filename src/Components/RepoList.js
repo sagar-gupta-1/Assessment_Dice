@@ -1,13 +1,12 @@
 import React from 'react';
 import {Row,Col,Card,Button, Container} from 'react-bootstrap';
-import './RepoList.css';
 
 
 const RepoCard = ({repo}) => {
     
 
   return (
-    <Col className='py-2 '>         
+    <Col className='py-2'>         
         <Card className='p-2  text-white' style={{ width: '18rem', height: '100%', background: '#495269', borderRadius: '2rem' }}>
             <Card.Img style={{width: '100%', borderRadius: '50%'}}  variant="top" src={repo.owner.avatar_url} />
             <Card.Body className='d-flex flex-column ' style={{height: '100%'}}>

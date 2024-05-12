@@ -10,11 +10,10 @@ function SearchBar({getApiResponse, setSearchQuery, searchQuery, filter, handleF
 
   const handleSubmit = (event) => {
 
-    const input = document.getElementById("search-input").value
+    const input = document.getElementById("search-input").value.trim()
     if(input !== null){
       event.preventDefault();
       setSearchQuery(input)
-      console.log(input);
       getApiResponse(input);
     }
     else{
